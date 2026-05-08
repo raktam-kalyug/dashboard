@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tasks — FocusDesk</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Epilogue:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+</head>
+<body class="page-tasks">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <div class="brand">
+        <div class="brand-icon">F</div>
+        <div class="brand-text">
+          <span class="brand-name">FocusDesk</span>
+          <span class="brand-sub">Productivity Suite</span>
+        </div>
+      </div>
+      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">&#8942;</button>
+    </div>
+    <nav class="sidebar-nav">
+      <p class="nav-group-label">Main</p>
+      <ul class="nav-list">
+        <li><a href="index.html"     class="nav-item"><span class="nav-icon">⬛</span><span class="nav-label">Dashboard</span></a></li>
+        <li><a href="tasks.html"     class="nav-item active"><span class="nav-icon">✓</span><span class="nav-label">Tasks</span></a></li>
+        <li><a href="timetable.html" class="nav-item"><span class="nav-icon">▦</span><span class="nav-label">Timetable</span></a></li>
+        <li><a href="notes.html"     class="nav-item"><span class="nav-icon">▤</span><span class="nav-label">Notes</span></a></li>
+        <li><a href="stats.html"     class="nav-item"><span class="nav-icon">◈</span><span class="nav-label">Analytics</span></a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-profile">
+      <div class="profile-avatar">RS</div>
+      <div class="profile-info">
+        <p class="profile-name">Rahul Sharma</p>
+        <p class="profile-course">B.Tech M&amp;C · Sem 2</p>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1 class="page-title">Tasks</h1>
+        <p class="page-sub">Manage your assignments, deadlines and to-dos.</p>
+      </div>
+      <div class="topbar-right">
+        <div class="live-clock" id="liveClock">00:00:00</div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">◑</button>
+      </div>
+    </header>
+
+    <!-- TASK TOOLBAR -->
+    <div class="task-toolbar">
+      <div class="task-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="today">Today</button>
+        <button class="filter-btn" data-filter="pending">Pending</button>
+        <button class="filter-btn" data-filter="done">Completed</button>
+        <button class="filter-btn" data-filter="high">High Priority</button>
+      </div>
+      <div class="task-actions">
+        <select class="task-sort-select" id="taskSort">
+          <option value="date">Sort: Due Date</option>
+          <option value="priority">Sort: Priority</option>
+          <option value="subject">Sort: Subject</option>
+        </select>
+        <button class="btn-add-task" id="openAddTask">+ New Task</button>
+      </div>
+    </div>
+
+    <!-- TASK PROGRESS OVERVIEW -->
+    <div class="task-overview">
+      <div class="task-ov-stat">
+        <span class="task-ov-num" id="ovTotal">10</span>
+        <span class="task-ov-label">Total</span>
+      </div>
+      <div class="task-ov-stat">
+        <span class="task-ov-num green" id="ovDone">6</span>
+        <span class="task-ov-label">Done</span>
+      </div>
+      <div class="task-ov-stat">
+        <span class="task-ov-num amber" id="ovPending">3</span>
+        <span class="task-ov-label">Pending</span>
+      </div>
+      <div class="task-ov-stat">
+        <span class="task-ov-num red" id="ovOverdue">1</span>
+        <span class="task-ov-label">Overdue</span>
+      </div>
+      <div class="task-ov-progress">
+        <div class="task-ov-bar">
+          <div class="task-ov-fill" id="ovFill" style="--pct: 60%"></div>
+        </div>
+        <span class="task-ov-pct">60% complete</span>
+      </div>
+    </div>
+
+    <!-- TASK BOARD: Kanban columns -->
+    <div class="task-board" id="taskBoard">
+
+      <div class="task-column" id="col-todo">
+        <div class="task-col-header">
+          <span class="col-dot red"></span>
+          <h3 class="col-title">To Do</h3>
+          <span class="col-count" id="countTodo">4</span>
+        </div>
+        <div class="task-col-body" id="colBodyTodo">
+
+          <article class="task-card priority-high" draggable="true">
+            <div class="task-card-top">
+              <span class="task-subject-tag">Mathematics</span>
+              <span class="priority-tag high">High</span>
+            </div>
+            <h4 class="task-card-title">Linear Algebra — Assignment 3</h4>
+            <p class="task-card-desc">Complete problem set on eigenvalues and eigenvectors. Q1–Q12.</p>
+            <div class="task-card-footer">
+              <span class="task-card-due">📅 Due: Apr 30, 11:59 PM</span>
+              <div class="task-card-actions">
+                <button class="tca-btn" aria-label="Edit">✎</button>
+                <button class="tca-btn tca-done" aria-label="Mark done">✓</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="task-card priority-high" draggable="true">
+            <div class="task-card-top">
+              <span class="task-subject-tag">Web Design</span>
+              <span class="priority-tag high">High</span>
+            </div>
+            <h4 class="task-card-title">Lab Report — Experiment 06</h4>
+            <p class="task-card-desc">Write up the JavaScript lab report with screenshots and explanation.</p>
+            <div class="task-card-footer">
+              <span class="task-card-due">📅 Due: May 1</span>
+              <div class="task-card-actions">
+                <button class="tca-btn" aria-label="Edit">✎</button>
+                <button class="tca-btn tca-done" aria-label="Mark done">✓</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="task-card priority-medium" draggable="true">
+            <div class="task-card-top">
+              <span class="task-subject-tag">Algorithms</span>
+              <span class="priority-tag medium">Medium</span>
+            </div>
+            <h4 class="task-card-title">Revise Graph Traversal (BFS/DFS)</h4>
+            <p class="task-card-desc">Exam in 3 days. Cover BFS, DFS, shortest path algorithms.</p>
+            <div class="task-card-footer">
+              <span class="task-card-due">📅 Due: May 2</span>
+              <div class="task-card-actions">
+                <button class="tca-btn" aria-label="Edit">✎</button>
+                <button class="tca-btn tca-done" aria-label="Mark done">✓</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="task-card priority-low" draggable="true">
+            <div class="task-card-top">
+              <span class="task-subject-tag">Personal</span>
+              <span class="priority-tag low">Low</span>
+            </div>
+            <h4 class="task-card-title">Update GitHub portfolio README</h4>
+            <p class="task-card-desc">Add new projects and fix broken image links.</p>
+            <div class="task-card-footer">
+              <span class="task-card-due">📅 No deadline</span>
+              <div class="task-card-actions">
+                <button class="tca-btn" aria-label="Edit">✎</button>
+                <button class="tca-btn tca-done" aria-label="Mark done">✓</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="task-column" id="col-inprogress">
+        <div class="task-col-header">
+          <span class="col-dot amber"></span>
+          <h3 class="col-title">In Progress</h3>
+          <span class="col-count" id="countInProgress">3</span>
+        </div>
+        <div class="task-col-body" id="colBodyInProgress">
+
+          <article class="task-card priority-high" draggable="true">
+            <div class="task-card-top">
+              <span class="task-subject-tag">Project</span>
+              <span class="priority-tag high">High</span>
+            </div>
+            <h4 class="task-card-title">FocusDesk — HTML Phase 1</h4>
+            <p class="task-card-desc">Build HTML structure for all 5 pages of the dashboard project.</p>
+            <div class="task-card-footer">
+              <span class="task-card-due">📅 Due: May 3</span>
+              <div class="task-card-actions">
+                <button class="tca-btn" aria-label="Edit">✎</button>
+                <button class="tca-btn tca-done" aria-label="Mark done">✓</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="task-card priority-medium" draggable="true">
+            <div class="task-card-top">
+              <span class="task-subject-tag">Data Structures</span>
+              <span class="priority-tag medium">Medium</span>
+            </div>
+            <h4 class="task-card-title">Practice — Linked Lists in C</h4>
+            <p class="task-card-desc">Implement singly and doubly linked list, insertion and deletion.</p>
+            <div class="task-card-footer">
+              <span class="task-card-due">📅 Due: May 5</span>
+              <div class="task-card-actions">
+                <button class="tca-btn" aria-label="Edit">✎</button>
+                <button class="tca-btn tca-done" aria-label="Mark done">✓</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="task-card priority-medium" draggable="true">
+            <div class="task-card-top">
+              <span class="task-subject-tag">Python</span>
+              <span class="priority-tag medium">Medium</span>
+            </div>
+            <h4 class="task-card-title">Assignment 2 — File I/O and OOP</h4>
+            <p class="task-card-desc">Finish remaining 4 questions on file handling and class design.</p>
+            <div class="task-card-footer">
+              <span class="task-card-due">📅 Due: May 6</span>
+              <div class="task-card-actions">
+                <button class="tca-btn" aria-label="Edit">✎</button>
+                <button class="tca-btn tca-done" aria-label="Mark done">✓</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="task-column" id="col-done">
+        <div class="task-col-header">
+          <span class="col-dot green"></span>
+          <h3 class="col-title">Done</h3>
+          <span class="col-count" id="countDone">3</span>
+        </div>
+        <div class="task-col-body" id="colBodyDone">
+
+          <article class="task-card done" draggable="true">
+            <div class="task-card-top">
+              <span class="task-subject-tag">Web Design</span>
+              <span class="done-check">✓</span>
+            </div>
+            <h4 class="task-card-title">Portfolio — CSS Lab 3 (Animations)</h4>
+            <p class="task-card-desc">Implemented Grid, Flexbox, gradients, keyframe animations.</p>
+            <div class="task-card-footer">
+              <span class="task-card-due done-label">Completed Apr 28</span>
+            </div>
+          </article>
+
+          <article class="task-card done" draggable="true">
+            <div class="task-card-top">
+              <span class="task-subject-tag">Mathematics</span>
+              <span class="done-check">✓</span>
+            </div>
+            <h4 class="task-card-title">Assignment 2 — Vector Spaces</h4>
+            <p class="task-card-desc">All questions on subspaces and basis completed and submitted.</p>
+            <div class="task-card-footer">
+              <span class="task-card-due done-label">Completed Apr 25</span>
+            </div>
+          </article>
+
+          <article class="task-card done" draggable="true">
+            <div class="task-card-top">
+              <span class="task-subject-tag">C Programming</span>
+              <span class="done-check">✓</span>
+            </div>
+            <h4 class="task-card-title">Lab 5 — Pointers and Arrays</h4>
+            <p class="task-card-desc">Completed all exercises, submitted report with output screenshots.</p>
+            <div class="task-card-footer">
+              <span class="task-card-due done-label">Completed Apr 22</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ADD TASK MODAL -->
+    <div class="modal-overlay" id="addTaskModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 class="modal-title">Add New Task</h3>
+          <button class="modal-close" id="closeAddTask">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-field">
+            <label class="modal-label" for="newTaskTitle">Task Title</label>
+            <input type="text" class="modal-input" id="newTaskTitle" placeholder="What needs to be done?" />
+          </div>
+          <div class="modal-field">
+            <label class="modal-label" for="newTaskDesc">Description</label>
+            <textarea class="modal-textarea" id="newTaskDesc" placeholder="Any extra details..." rows="3"></textarea>
+          </div>
+          <div class="modal-row">
+            <div class="modal-field">
+              <label class="modal-label" for="newTaskSubject">Subject</label>
+              <select class="modal-select" id="newTaskSubject">
+                <option>Mathematics</option>
+                <option>Algorithms</option>
+                <option>Data Structures</option>
+                <option>Web Design</option>
+                <option>Python</option>
+                <option>C Programming</option>
+                <option>Project</option>
+                <option>Personal</option>
+              </select>
+            </div>
+            <div class="modal-field">
+              <label class="modal-label" for="newTaskPriority">Priority</label>
+              <select class="modal-select" id="newTaskPriority">
+                <option value="high">High</option>
+                <option value="medium" selected>Medium</option>
+                <option value="low">Low</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-field">
+            <label class="modal-label" for="newTaskDue">Due Date</label>
+            <input type="date" class="modal-input" id="newTaskDue" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-btn-cancel" id="cancelAddTask">Cancel</button>
+          <button class="modal-btn-confirm" id="confirmAddTask">Add Task</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script type="module" src="../js/app.js"></script>
+  <script type="module" src="../js/tasks.js"></script>
+</body>
+</html>

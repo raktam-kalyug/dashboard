@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FocusDesk — Student Productivity Dashboard</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Epilogue:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+</head>
+<body class="page-dashboard">
+
+  <!-- ── SIDEBAR ─────────────────────────────── -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <div class="brand">
+        <div class="brand-icon">F</div>
+        <div class="brand-text">
+          <span class="brand-name">FocusDesk</span>
+          <span class="brand-sub">Productivity Suite</span>
+        </div>
+      </div>
+      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">&#8942;</button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <p class="nav-group-label">Main</p>
+      <ul class="nav-list">
+        <li>
+          <a href="index.html" class="nav-item active">
+            <span class="nav-icon">⬛</span>
+            <span class="nav-label">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="tasks.html" class="nav-item">
+            <span class="nav-icon">✓</span>
+            <span class="nav-label">Tasks</span>
+          </a>
+        </li>
+        <li>
+          <a href="timetable.html" class="nav-item">
+            <span class="nav-icon">▦</span>
+            <span class="nav-label">Timetable</span>
+          </a>
+        </li>
+        <li>
+          <a href="notes.html" class="nav-item">
+            <span class="nav-icon">▤</span>
+            <span class="nav-label">Notes</span>
+          </a>
+        </li>
+        <li>
+          <a href="stats.html" class="nav-item">
+            <span class="nav-icon">◈</span>
+            <span class="nav-label">Analytics</span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="nav-group-label">Quick Tools</p>
+      <ul class="nav-list">
+        <li>
+          <a href="#pomodoro" class="nav-item">
+            <span class="nav-icon">◷</span>
+            <span class="nav-label">Pomodoro Timer</span>
+          </a>
+        </li>
+        <li>
+          <a href="#habits" class="nav-item">
+            <span class="nav-icon">◉</span>
+            <span class="nav-label">Habit Tracker</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-profile">
+      <div class="profile-avatar">RS</div>
+      <div class="profile-info">
+        <p class="profile-name">Rahul Sharma</p>
+        <p class="profile-course">B.Tech M&amp;C · Sem 2</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── MAIN CONTENT ───────────────────────── -->
+  <main class="main-content">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1 class="page-title">Dashboard</h1>
+        <p class="page-sub" id="currentDate">Loading date...</p>
+      </div>
+      <div class="topbar-right">
+        <div class="live-clock" id="liveClock">00:00:00</div>
+        <div class="streak-badge">
+          <span class="streak-fire">🔥</span>
+          <span class="streak-count" id="streakCount">7</span>
+          <span class="streak-label">day streak</span>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">◑</button>
+      </div>
+    </header>
+
+    <!-- GREETING BANNER -->
+    <section class="greeting-banner">
+      <div class="greeting-text">
+        <h2 class="greeting-headline" id="greetingText">Good morning, Rahul.</h2>
+        <p class="greeting-sub">You have <strong id="tasksToday">4 tasks</strong> due today and your Algorithms exam is in <strong>3 days</strong>. Let's make it count.</p>
+      </div>
+      <div class="greeting-visual" aria-hidden="true">
+        <div class="gv-ring gv-ring-1"></div>
+        <div class="gv-ring gv-ring-2"></div>
+        <div class="gv-ring gv-ring-3"></div>
+        <span class="gv-icon">⚡</span>
+      </div>
+    </section>
+
+    <!-- STAT CARDS ROW -->
+    <section class="stats-row" aria-label="Quick stats">
+      <div class="stat-card" id="statFocusTime">
+        <div class="stat-card-top">
+          <span class="stat-icon">◷</span>
+          <span class="stat-trend up">+12%</span>
+        </div>
+        <div class="stat-number">4h 20m</div>
+        <div class="stat-label">Focus time today</div>
+        <div class="stat-bar">
+          <div class="stat-bar-fill" style="--pct: 72%"></div>
+        </div>
+      </div>
+
+      <div class="stat-card" id="statTasksDone">
+        <div class="stat-card-top">
+          <span class="stat-icon">✓</span>
+          <span class="stat-trend up">+3 this week</span>
+        </div>
+        <div class="stat-number">6 / 10</div>
+        <div class="stat-label">Tasks completed</div>
+        <div class="stat-bar">
+          <div class="stat-bar-fill" style="--pct: 60%"></div>
+        </div>
+      </div>
+
+      <div class="stat-card" id="statAttendance">
+        <div class="stat-card-top">
+          <span class="stat-icon">▣</span>
+          <span class="stat-trend neutral">On track</span>
+        </div>
+        <div class="stat-number">82%</div>
+        <div class="stat-label">Attendance this month</div>
+        <div class="stat-bar">
+          <div class="stat-bar-fill" style="--pct: 82%"></div>
+        </div>
+      </div>
+
+      <div class="stat-card" id="statHabits">
+        <div class="stat-card-top">
+          <span class="stat-icon">◉</span>
+          <span class="stat-trend up">4/5 done</span>
+        </div>
+        <div class="stat-number">80%</div>
+        <div class="stat-label">Habits today</div>
+        <div class="stat-bar">
+          <div class="stat-bar-fill" style="--pct: 80%"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN GRID: Two columns -->
+    <div class="dashboard-grid">
+
+      <!-- LEFT COLUMN -->
+      <div class="dash-col dash-col-left">
+
+        <!-- POMODORO TIMER -->
+        <section class="widget widget-pomodoro" id="pomodoro">
+          <div class="widget-header">
+            <h3 class="widget-title">Pomodoro Timer</h3>
+            <div class="pomo-mode-tabs">
+              <button class="pomo-tab active" data-mode="focus" id="modeWork">Focus</button>
+              <button class="pomo-tab" data-mode="short" id="modeShort">Short Break</button>
+              <button class="pomo-tab" data-mode="long" id="modeLong">Long Break</button>
+            </div>
+          </div>
+          <div class="pomo-body">
+            <div class="pomo-ring-wrap">
+              <svg class="pomo-ring" viewBox="0 0 120 120" aria-hidden="true">
+                <circle class="pomo-ring-bg" cx="60" cy="60" r="52" />
+                <circle class="pomo-ring-fill" cx="60" cy="60" r="52" id="pomodoroRing" />
+              </svg>
+              <div class="pomo-time-display" id="pomodoroDisplay">25:00</div>
+            </div>
+            <div class="pomo-controls">
+              <button class="pomo-btn" id="pomodoroStart">▶ Start</button>
+              <button class="pomo-btn pomo-btn-ghost" id="pomodoroReset">↺ Reset</button>
+            </div>
+            <p class="pomo-session-info">Session <span id="pomodoroSession">1</span> of 4 &nbsp;·&nbsp; <span id="pomodoroPhase">Focus time</span></p>
+          </div>
+        </section>
+
+        <!-- TODAY'S QUICK TASKS -->
+        <section class="widget widget-tasks">
+          <div class="widget-header">
+            <h3 class="widget-title">Today's Tasks</h3>
+            <a href="tasks.html" class="widget-link">View all →</a>
+          </div>
+          <ul class="quick-task-list" id="quickTaskList">
+            <li class="quick-task" data-priority="high">
+              <input type="checkbox" class="task-cb" id="qt1" />
+              <label for="qt1" class="task-cb-label"></label>
+              <div class="task-text-wrap">
+                <span class="task-text">Submit Linear Algebra assignment</span>
+                <span class="task-due">Due 11:59 PM</span>
+              </div>
+              <span class="task-priority-dot high"></span>
+            </li>
+            <li class="quick-task" data-priority="medium">
+              <input type="checkbox" class="task-cb" id="qt2" />
+              <label for="qt2" class="task-cb-label"></label>
+              <div class="task-text-wrap">
+                <span class="task-text">Read Chapter 4 — Data Structures</span>
+                <span class="task-due">Due 6:00 PM</span>
+              </div>
+              <span class="task-priority-dot medium"></span>
+            </li>
+            <li class="quick-task done" data-priority="low">
+              <input type="checkbox" class="task-cb" id="qt3" checked />
+              <label for="qt3" class="task-cb-label"></label>
+              <div class="task-text-wrap">
+                <span class="task-text">Morning revision — C pointers</span>
+                <span class="task-due">Done</span>
+              </div>
+              <span class="task-priority-dot low"></span>
+            </li>
+            <li class="quick-task" data-priority="high">
+              <input type="checkbox" class="task-cb" id="qt4" />
+              <label for="qt4" class="task-cb-label"></label>
+              <div class="task-text-wrap">
+                <span class="task-text">Lab report: Web Design experiment</span>
+                <span class="task-due">Due tomorrow</span>
+              </div>
+              <span class="task-priority-dot high"></span>
+            </li>
+          </ul>
+          <div class="add-task-inline">
+            <input type="text" class="add-task-input" id="addTaskInput" placeholder="Add a quick task..." />
+            <button class="add-task-btn" id="addTaskBtn">+</button>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="dash-col dash-col-right">
+
+        <!-- UPCOMING SCHEDULE -->
+        <section class="widget widget-schedule">
+          <div class="widget-header">
+            <h3 class="widget-title">Today's Schedule</h3>
+            <a href="timetable.html" class="widget-link">Full timetable →</a>
+          </div>
+          <div class="schedule-timeline">
+            <div class="schedule-item done">
+              <div class="sched-time">9:00 AM</div>
+              <div class="sched-line"><div class="sched-dot"></div></div>
+              <div class="sched-content">
+                <p class="sched-subject">Mathematics</p>
+                <p class="sched-info">Dr. Swati Mishra · Room 234</p>
+              </div>
+            </div>
+            <div class="schedule-item active">
+              <div class="sched-time">11:00 AM</div>
+              <div class="sched-line"><div class="sched-dot"></div></div>
+              <div class="sched-content">
+                <p class="sched-subject">Data Structures Lab</p>
+                <p class="sched-info">Prof. Rajesh Ranjan · PP Lab 1</p>
+              </div>
+            </div>
+            <div class="schedule-item">
+              <div class="sched-time">2:00 PM</div>
+              <div class="sched-line"><div class="sched-dot"></div></div>
+              <div class="sched-content">
+                <p class="sched-subject">Web Design</p>
+                <p class="sched-info">Prof. Singh · Room 301</p>
+              </div>
+            </div>
+            <div class="schedule-item">
+              <div class="sched-time">4:00 PM</div>
+              <div class="sched-line"><div class="sched-dot"></div></div>
+              <div class="sched-content">
+                <p class="sched-subject">Self Study — Algorithms</p>
+                <p class="sched-info">Library / Room</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- HABIT TRACKER -->
+        <section class="widget widget-habits" id="habits">
+          <div class="widget-header">
+            <h3 class="widget-title">Today's Habits</h3>
+            <span class="widget-badge" id="habitBadge">4/5 done</span>
+          </div>
+          <ul class="habit-list" id="habitList">
+            <li class="habit-item done">
+              <button class="habit-check" data-done="true" aria-label="Toggle">✓</button>
+              <div class="habit-info">
+                <span class="habit-name">Morning revision</span>
+                <span class="habit-streak">🔥 7 days</span>
+              </div>
+            </li>
+            <li class="habit-item done">
+              <button class="habit-check" data-done="true" aria-label="Toggle">✓</button>
+              <div class="habit-info">
+                <span class="habit-name">30 min physical activity</span>
+                <span class="habit-streak">🔥 4 days</span>
+              </div>
+            </li>
+            <li class="habit-item done">
+              <button class="habit-check" data-done="true" aria-label="Toggle">✓</button>
+              <div class="habit-info">
+                <span class="habit-name">Read for 20 minutes</span>
+                <span class="habit-streak">🔥 12 days</span>
+              </div>
+            </li>
+            <li class="habit-item done">
+              <button class="habit-check" data-done="true" aria-label="Toggle">✓</button>
+              <div class="habit-info">
+                <span class="habit-name">No phone before 9 AM</span>
+                <span class="habit-streak">🔥 3 days</span>
+              </div>
+            </li>
+            <li class="habit-item">
+              <button class="habit-check" data-done="false" aria-label="Toggle">○</button>
+              <div class="habit-info">
+                <span class="habit-name">Drink 2L water</span>
+                <span class="habit-streak">— 0 days</span>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- QUICK NOTE -->
+        <section class="widget widget-quicknote">
+          <div class="widget-header">
+            <h3 class="widget-title">Quick Note</h3>
+            <a href="notes.html" class="widget-link">All notes →</a>
+          </div>
+          <textarea class="quick-note-area" id="quickNoteArea" placeholder="Jot something down... (auto-saved)">Algorithms exam in 3 days, focus on graph traversal (BFS/DFS) and dynamic programming. Check last year's paper tonight.</textarea>
+          <p class="quick-note-hint" id="quickNoteSaveStatus">Auto-saved</p>
+        </section>
+
+      </div>
+
+    </div>
+    <!-- end dashboard-grid -->
+
+    <!-- EXAM COUNTDOWN STRIP -->
+    <section class="exam-strip">
+      <div class="widget-header">
+        <h3 class="widget-title">Upcoming Exams</h3>
+        <button class="widget-link-btn" id="addExamBtn">+ Add exam</button>
+      </div>
+      <div class="exam-cards-row" id="examCardsRow">
+        <div class="exam-card">
+          <div class="exam-days" id="examDays1">3</div>
+          <div class="exam-days-label">days left</div>
+          <div class="exam-name">Algorithms</div>
+          <div class="exam-date">May 3, 2025</div>
+        </div>
+        <div class="exam-card">
+          <div class="exam-days">11</div>
+          <div class="exam-days-label">days left</div>
+          <div class="exam-name">Linear Algebra</div>
+          <div class="exam-date">May 11, 2025</div>
+        </div>
+        <div class="exam-card">
+          <div class="exam-days">18</div>
+          <div class="exam-days-label">days left</div>
+          <div class="exam-name">Web Design</div>
+          <div class="exam-date">May 18, 2025</div>
+        </div>
+        <div class="exam-card">
+          <div class="exam-days">24</div>
+          <div class="exam-days-label">days left</div>
+          <div class="exam-name">Data Structures</div>
+          <div class="exam-date">May 24, 2025</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <!-- end main-content -->
+
+  <script type="module" src="../js/app.js"></script>
+  <script type="module" src="../js/dashboard.js"></script>
+</body>
+</html>

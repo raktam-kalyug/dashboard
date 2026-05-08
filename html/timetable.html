@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timetable — FocusDesk</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Epilogue:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+</head>
+<body class="page-timetable">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <div class="brand">
+        <div class="brand-icon">F</div>
+        <div class="brand-text">
+          <span class="brand-name">FocusDesk</span>
+          <span class="brand-sub">Productivity Suite</span>
+        </div>
+      </div>
+      <button class="sidebar-toggle" id="sidebarToggle">&#8942;</button>
+    </div>
+    <nav class="sidebar-nav">
+      <p class="nav-group-label">Main</p>
+      <ul class="nav-list">
+        <li><a href="index.html"     class="nav-item"><span class="nav-icon">⬛</span><span class="nav-label">Dashboard</span></a></li>
+        <li><a href="tasks.html"     class="nav-item"><span class="nav-icon">✓</span><span class="nav-label">Tasks</span></a></li>
+        <li><a href="timetable.html" class="nav-item active"><span class="nav-icon">▦</span><span class="nav-label">Timetable</span></a></li>
+        <li><a href="notes.html"     class="nav-item"><span class="nav-icon">▤</span><span class="nav-label">Notes</span></a></li>
+        <li><a href="stats.html"     class="nav-item"><span class="nav-icon">◈</span><span class="nav-label">Analytics</span></a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-profile">
+      <div class="profile-avatar">RS</div>
+      <div class="profile-info">
+        <p class="profile-name">Rahul Sharma</p>
+        <p class="profile-course">B.Tech M&amp;C · Sem 2</p>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1 class="page-title">Timetable</h1>
+        <p class="page-sub">Weekly class schedule — 2nd Semester 2025</p>
+      </div>
+      <div class="topbar-right">
+        <div class="live-clock" id="liveClock">00:00:00</div>
+        <div class="week-nav">
+          <button class="week-btn" id="prevWeek">‹</button>
+          <span class="week-label" id="weekLabel">This Week</span>
+          <button class="week-btn" id="nextWeek">›</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle">◑</button>
+      </div>
+    </header>
+
+    <!-- VIEW TOGGLE -->
+    <div class="view-toggle-bar">
+      <button class="view-btn active" data-view="week">Week View</button>
+      <button class="view-btn" data-view="day">Day View</button>
+      <button class="view-btn add-slot-btn" id="openAddSlot">+ Add Class</button>
+    </div>
+
+    <!-- WEEKLY TIMETABLE GRID -->
+    <div class="timetable-wrap">
+      <div class="timetable-grid" id="timetableGrid">
+
+        <!-- Column Headers -->
+        <div class="tt-header tt-time-header"></div>
+        <div class="tt-header" data-today="false">Mon</div>
+        <div class="tt-header" data-today="false">Tue</div>
+        <div class="tt-header" data-today="true">Wed</div>
+        <div class="tt-header" data-today="false">Thu</div>
+        <div class="tt-header" data-today="false">Fri</div>
+        <div class="tt-header" data-today="false">Sat</div>
+
+        <!-- Time slots 8 AM to 6 PM -->
+        <div class="tt-time">8:00</div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell">
+          <div class="tt-class subject-maths">
+            <span class="ttc-name">Mathematics</span>
+            <span class="ttc-room">Room 204</span>
+          </div>
+        </div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell">
+          <div class="tt-class subject-maths">
+            <span class="ttc-name">Mathematics</span>
+            <span class="ttc-room">Room 204</span>
+          </div>
+        </div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell"></div>
+
+        <div class="tt-time">9:00</div>
+        <div class="tt-cell">
+          <div class="tt-class subject-maths">
+            <span class="ttc-name">Mathematics</span>
+            <span class="ttc-room">Room 204</span>
+          </div>
+        </div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell">
+          <div class="tt-class subject-maths active-now">
+            <span class="ttc-now">NOW</span>
+            <span class="ttc-name">Mathematics</span>
+            <span class="ttc-room">Room 204</span>
+          </div>
+        </div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell">
+          <div class="tt-class subject-maths">
+            <span class="ttc-name">Mathematics</span>
+            <span class="ttc-room">Room 204</span>
+          </div>
+        </div>
+        <div class="tt-cell"></div>
+
+        <div class="tt-time">10:00</div>
+        <div class="tt-cell">
+          <div class="tt-class subject-algo">
+            <span class="ttc-name">Algorithms</span>
+            <span class="ttc-room">Room 110</span>
+          </div>
+        </div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell">
+          <div class="tt-class subject-ds">
+            <span class="ttc-name">Data Structures</span>
+            <span class="ttc-room">CS Lab 1</span>
+          </div>
+        </div>
+        <div class="tt-cell">
+          <div class="tt-class subject-algo">
+            <span class="ttc-name">Algorithms</span>
+            <span class="ttc-room">Room 110</span>
+          </div>
+        </div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell"></div>
+
+        <div class="tt-time">11:00</div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell">
+          <div class="tt-class subject-web">
+            <span class="ttc-name">Web Design</span>
+            <span class="ttc-room">Room 301</span>
+          </div>
+        </div>
+        <div class="tt-cell">
+          <div class="tt-class subject-ds">
+            <span class="ttc-name">DS Lab</span>
+            <span class="ttc-room">CS Lab 1</span>
+          </div>
+        </div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell">
+          <div class="tt-class subject-web">
+            <span class="ttc-name">Web Design</span>
+            <span class="ttc-room">Room 301</span>
+          </div>
+        </div>
+        <div class="tt-cell"></div>
+
+        <div class="tt-time">12:00</div>
+        <div class="tt-cell tt-break"><span>Lunch Break</span></div>
+        <div class="tt-cell tt-break"><span>Lunch Break</span></div>
+        <div class="tt-cell tt-break"><span>Lunch Break</span></div>
+        <div class="tt-cell tt-break"><span>Lunch Break</span></div>
+        <div class="tt-cell tt-break"><span>Lunch Break</span></div>
+        <div class="tt-cell tt-break"><span>Lunch Break</span></div>
+
+        <div class="tt-time">1:00</div>
+        <div class="tt-cell">
+          <div class="tt-class subject-python">
+            <span class="ttc-name">Python</span>
+            <span class="ttc-room">CS Lab 2</span>
+          </div>
+        </div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell">
+          <div class="tt-class subject-web">
+            <span class="ttc-name">Web Design</span>
+            <span class="ttc-room">Room 301</span>
+          </div>
+        </div>
+        <div class="tt-cell">
+          <div class="tt-class subject-python">
+            <span class="ttc-name">Python</span>
+            <span class="ttc-room">CS Lab 2</span>
+          </div>
+        </div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell"></div>
+
+        <div class="tt-time">2:00</div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell">
+          <div class="tt-class subject-c">
+            <span class="ttc-name">C Programming</span>
+            <span class="ttc-room">CS Lab 1</span>
+          </div>
+        </div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell">
+          <div class="tt-class subject-c">
+            <span class="ttc-name">C Programming</span>
+            <span class="ttc-room">CS Lab 1</span>
+          </div>
+        </div>
+        <div class="tt-cell"></div>
+
+        <div class="tt-time">3:00</div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell">
+          <div class="tt-class subject-self">
+            <span class="ttc-name">Self Study</span>
+            <span class="ttc-room">Library</span>
+          </div>
+        </div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell">
+          <div class="tt-class subject-self">
+            <span class="ttc-name">Self Study</span>
+            <span class="ttc-room">Library</span>
+          </div>
+        </div>
+        <div class="tt-cell"></div>
+
+        <div class="tt-time">4:00</div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell"></div>
+        <div class="tt-cell"></div>
+
+      </div>
+    </div>
+
+    <!-- LEGEND -->
+    <div class="tt-legend">
+      <div class="legend-item"><span class="legend-dot subject-maths"></span>Mathematics</div>
+      <div class="legend-item"><span class="legend-dot subject-algo"></span>Algorithms</div>
+      <div class="legend-item"><span class="legend-dot subject-ds"></span>Data Structures</div>
+      <div class="legend-item"><span class="legend-dot subject-web"></span>Web Design</div>
+      <div class="legend-item"><span class="legend-dot subject-python"></span>Python</div>
+      <div class="legend-item"><span class="legend-dot subject-c"></span>C Programming</div>
+      <div class="legend-item"><span class="legend-dot subject-self"></span>Self Study</div>
+    </div>
+
+    <!-- ADD SLOT MODAL -->
+    <div class="modal-overlay" id="addSlotModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 class="modal-title">Add Class Slot</h3>
+          <button class="modal-close" id="closeAddSlot">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-field">
+            <label class="modal-label">Subject Name</label>
+            <input type="text" class="modal-input" placeholder="e.g. Mathematics" />
+          </div>
+          <div class="modal-row">
+            <div class="modal-field">
+              <label class="modal-label">Day</label>
+              <select class="modal-select">
+                <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+                <option>Thursday</option><option>Friday</option><option>Saturday</option>
+              </select>
+            </div>
+            <div class="modal-field">
+              <label class="modal-label">Time</label>
+              <input type="time" class="modal-input" />
+            </div>
+          </div>
+          <div class="modal-field">
+            <label class="modal-label">Room / Location</label>
+            <input type="text" class="modal-input" placeholder="e.g. Room 204" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-btn-cancel" id="cancelAddSlot">Cancel</button>
+          <button class="modal-btn-confirm">Add Slot</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script type="module" src="../js/app.js"></script>
+  <script type="module" src="../js/timetable.js"></script>
+</body>
+</html>

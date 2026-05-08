@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes — FocusDesk</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Epilogue:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+</head>
+<body class="page-notes">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <div class="brand">
+        <div class="brand-icon">F</div>
+        <div class="brand-text">
+          <span class="brand-name">FocusDesk</span>
+          <span class="brand-sub">Productivity Suite</span>
+        </div>
+      </div>
+      <button class="sidebar-toggle" id="sidebarToggle">&#8942;</button>
+    </div>
+    <nav class="sidebar-nav">
+      <p class="nav-group-label">Main</p>
+      <ul class="nav-list">
+        <li><a href="index.html"     class="nav-item"><span class="nav-icon">⬛</span><span class="nav-label">Dashboard</span></a></li>
+        <li><a href="tasks.html"     class="nav-item"><span class="nav-icon">✓</span><span class="nav-label">Tasks</span></a></li>
+        <li><a href="timetable.html" class="nav-item"><span class="nav-icon">▦</span><span class="nav-label">Timetable</span></a></li>
+        <li><a href="notes.html"     class="nav-item active"><span class="nav-icon">▤</span><span class="nav-label">Notes</span></a></li>
+        <li><a href="stats.html"     class="nav-item"><span class="nav-icon">◈</span><span class="nav-label">Analytics</span></a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-profile">
+      <div class="profile-avatar">RS</div>
+      <div class="profile-info">
+        <p class="profile-name">Rahul Sharma</p>
+        <p class="profile-course">B.Tech M&amp;C · Sem 2</p>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1 class="page-title">Notes</h1>
+        <p class="page-sub">Your study notes, summaries and ideas — all in one place.</p>
+      </div>
+      <div class="topbar-right">
+        <div class="live-clock" id="liveClock">00:00:00</div>
+        <button class="theme-toggle" id="themeToggle">◑</button>
+      </div>
+    </header>
+
+    <!-- NOTES LAYOUT: Sidebar + Editor -->
+    <div class="notes-layout">
+
+      <!-- NOTES SIDEBAR -->
+      <aside class="notes-sidebar">
+        <div class="notes-search-wrap">
+          <input type="text" class="notes-search" id="notesSearch" placeholder="Search notes..." />
+        </div>
+        <div class="notes-filter-tabs">
+          <button class="notes-filter active" data-cat="all">All</button>
+          <button class="notes-filter" data-cat="maths">Maths</button>
+          <button class="notes-filter" data-cat="algo">Algo</button>
+          <button class="notes-filter" data-cat="web">Web</button>
+          <button class="notes-filter" data-cat="other">Other</button>
+        </div>
+        <button class="new-note-btn" id="newNoteBtn">+ New Note</button>
+        <ul class="notes-list" id="notesList">
+          <li class="note-item active" data-noteid="1">
+            <div class="note-item-top">
+              <span class="note-item-cat web">Web Design</span>
+              <span class="note-item-date">Apr 29</span>
+            </div>
+            <h4 class="note-item-title">CSS Grid — Key Concepts</h4>
+            <p class="note-item-preview">grid-template-areas, repeat(), minmax(), auto-fill vs auto-fit...</p>
+          </li>
+          <li class="note-item" data-noteid="2">
+            <div class="note-item-top">
+              <span class="note-item-cat algo">Algorithms</span>
+              <span class="note-item-date">Apr 28</span>
+            </div>
+            <h4 class="note-item-title">Graph Traversal — BFS &amp; DFS</h4>
+            <p class="note-item-preview">BFS uses queue, DFS uses stack/recursion. Time complexity O(V+E)...</p>
+          </li>
+          <li class="note-item" data-noteid="3">
+            <div class="note-item-top">
+              <span class="note-item-cat maths">Mathematics</span>
+              <span class="note-item-date">Apr 26</span>
+            </div>
+            <h4 class="note-item-title">Eigenvalues &amp; Eigenvectors</h4>
+            <p class="note-item-preview">Av = λv. Characteristic equation: det(A - λI) = 0...</p>
+          </li>
+          <li class="note-item" data-noteid="4">
+            <div class="note-item-top">
+              <span class="note-item-cat other">C Programming</span>
+              <span class="note-item-date">Apr 24</span>
+            </div>
+            <h4 class="note-item-title">Pointer Arithmetic</h4>
+            <p class="note-item-preview">Pointer increments by sizeof(type). *ptr, &amp;var, ptr++...</p>
+          </li>
+          <li class="note-item" data-noteid="5">
+            <div class="note-item-top">
+              <span class="note-item-cat other">Python</span>
+              <span class="note-item-date">Apr 22</span>
+            </div>
+            <h4 class="note-item-title">OOP Concepts in Python</h4>
+            <p class="note-item-preview">class, __init__, self, inheritance, super(). Dunder methods...</p>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- NOTE EDITOR -->
+      <div class="note-editor-wrap">
+        <div class="note-editor-toolbar">
+          <div class="editor-meta">
+            <input type="text" class="note-title-input" id="noteTitleInput" value="CSS Grid — Key Concepts" />
+            <div class="editor-meta-row">
+              <select class="note-cat-select" id="noteCatSelect">
+                <option value="web" selected>Web Design</option>
+                <option value="maths">Mathematics</option>
+                <option value="algo">Algorithms</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="note-save-status" id="noteSaveStatus">Saved</span>
+            </div>
+          </div>
+          <div class="editor-actions">
+            <button class="editor-btn" id="deleteNoteBtn" title="Delete note">🗑</button>
+          </div>
+        </div>
+
+        <!-- FORMAT TOOLBAR -->
+        <div class="format-toolbar">
+          <button class="fmt-btn" data-cmd="bold" title="Bold"><b>B</b></button>
+          <button class="fmt-btn" data-cmd="italic" title="Italic"><i>I</i></button>
+          <button class="fmt-btn" data-cmd="underline" title="Underline"><u>U</u></button>
+          <div class="fmt-sep"></div>
+          <button class="fmt-btn" data-cmd="insertUnorderedList" title="Bullet list">≡</button>
+          <button class="fmt-btn" data-cmd="insertOrderedList" title="Numbered list">1.</button>
+          <div class="fmt-sep"></div>
+          <button class="fmt-btn" data-cmd="h2" title="Heading">H</button>
+          <button class="fmt-btn" data-cmd="blockquote" title="Quote">"</button>
+        </div>
+
+        <div class="note-editor" id="noteEditor" contenteditable="true">
+          <h2>CSS Grid — Key Concepts</h2>
+          <p>The CSS Grid Layout Module offers a grid-based layout system, with rows and columns, making it easier to design web pages without having to use floats and positioning.</p>
+          <h3>Core Properties</h3>
+          <ul>
+            <li><strong>display: grid</strong> — activates grid on the container</li>
+            <li><strong>grid-template-columns</strong> — defines column tracks</li>
+            <li><strong>grid-template-rows</strong> — defines row tracks</li>
+            <li><strong>grid-template-areas</strong> — named layout areas</li>
+            <li><strong>gap</strong> — spacing between tracks</li>
+          </ul>
+          <h3>Useful Functions</h3>
+          <ul>
+            <li><strong>repeat(3, 1fr)</strong> — repeat 3 equal columns</li>
+            <li><strong>minmax(200px, 1fr)</strong> — min 200px, max flexible</li>
+            <li><strong>auto-fill vs auto-fit</strong> — auto-fill keeps empty tracks, auto-fit collapses them</li>
+          </ul>
+          <blockquote>Key exam tip: grid-area is shorthand for grid-row-start, grid-column-start, grid-row-end, grid-column-end.</blockquote>
+        </div>
+
+        <div class="note-editor-footer">
+          <span class="note-wordcount" id="noteWordcount">Word count: 124</span>
+          <span class="note-last-edited" id="noteLastEdited">Last edited: Apr 29, 2025</span>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script type="module" src="../js/app.js"></script>
+  <script type="module" src="../js/notes.js"></script>
+</body>
+</html>
