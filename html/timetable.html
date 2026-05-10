@@ -53,6 +53,11 @@
     href="../css/style.css"
   />
 
+  <script>
+    if (localStorage.getItem("spd_theme") === "dark" || localStorage.getItem("theme") === "dark") {
+      document.documentElement.classList.add("dark");
+    }
+  </script>
 </head>
 
 <body class="page-timetable">

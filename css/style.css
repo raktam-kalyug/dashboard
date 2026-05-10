@@ -89,7 +89,7 @@ body::after {
   100% { transform: translate(-5vw, -5vh) scale(0.95); }
 }
 
-body.dark {
+body.dark, html.dark body {
   --bg: #09090b;
   --panel: rgba(24, 24, 27, 0.35);
   --panel-soft: rgba(255, 255, 255, 0.05);
@@ -2136,4 +2136,12 @@ a {
 
 .pomo-btn:hover, .add-task-btn:hover, .modal-btn-cancel:hover, .widget-link-btn:hover {
   background: var(--panel) !important;
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+body {
+  animation: pageFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
