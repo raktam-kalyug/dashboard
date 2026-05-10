@@ -23,11 +23,11 @@
     <nav class="sidebar-nav">
       <p class="nav-group-label">Main</p>
       <ul class="nav-list">
-        <li><a href="index.html"     class="nav-item"><span class="nav-icon">⬛</span><span class="nav-label">Dashboard</span></a></li>
-        <li><a href="tasks.html"     class="nav-item"><span class="nav-icon">✓</span><span class="nav-label">Tasks</span></a></li>
-        <li><a href="timetable.html" class="nav-item"><span class="nav-icon">▦</span><span class="nav-label">Timetable</span></a></li>
-        <li><a href="notes.html"     class="nav-item active"><span class="nav-icon">▤</span><span class="nav-label">Notes</span></a></li>
-        <li><a href="stats.html"     class="nav-item"><span class="nav-icon">◈</span><span class="nav-label">Analytics</span></a></li>
+        <li><a href="index.html"     class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg></span><span class="nav-label">Dashboard</span></a></li>
+        <li><a href="tasks.html"     class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></span><span class="nav-label">Tasks</span></a></li>
+        <li><a href="timetable.html" class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span><span class="nav-label">Timetable</span></a></li>
+        <li><a href="notes.html"     class="nav-item active"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></span><span class="nav-label">Notes</span></a></li>
+        <li><a href="stats.html"     class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg></span><span class="nav-label">Analytics</span></a></li>
       </ul>
     </nav>
     <div class="sidebar-profile">
@@ -52,6 +52,14 @@
     </header>
 
     <!-- NOTES LAYOUT: Sidebar + Editor -->
+    <div class="page-tabs" style="margin-bottom: 20px; display: flex; gap: 10px;">
+      <button type="button" class="page-tab-btn active" data-tab="notesTab">Study Notes</button>
+      <button type="button" class="page-tab-btn" data-tab="habitsTab">Habit Management</button>
+      <button type="button" class="page-tab-btn" data-tab="syllabusTab">Subjects & Syllabus</button>
+    </div>
+
+    <!-- NOTES CONTENT -->
+    <section class="page-tab-content active" id="notesTab" style="display: block;">
     <div class="notes-layout">
 
       <!-- NOTES SIDEBAR -->
@@ -171,6 +179,42 @@
       </div>
 
     </div>
+
+    </section>
+
+    <!-- HABITS CONTENT -->
+    <section class="page-tab-content" id="habitsTab" style="display: none;">
+      <div class="widget">
+        <h2 class="widget-title">Habit Management</h2>
+        <p class="page-sub" style="margin-bottom: 20px;">Add, edit, or delete habits here. Tracking changes will reflect instantly on your Dashboard.</p>
+        
+        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+          <input type="text" id="newHabitInput" placeholder="Enter new habit name" style="flex: 1; padding: 10px 14px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--panel-soft); color: var(--text);">
+          <button class="calendar-create-btn" id="addHabitBtn" style="padding: 10px 20px; cursor: pointer; border-radius: var(--radius-sm);">+ Add Habit</button>
+        </div>
+
+        <ul id="manageHabitList" style="list-style: none; padding: 0; display: grid; gap: 12px;">
+          <!-- Populated by JS -->
+        </ul>
+      </div>
+    </section>
+
+    <!-- SYLLABUS CONTENT -->
+    <section class="page-tab-content" id="syllabusTab" style="display: none;">
+      <div class="widget">
+        <h2 class="widget-title">Subjects & Syllabus Tracker</h2>
+        <p class="page-sub" style="margin-bottom: 20px;">Manage your subjects and track syllabus completion progress.</p>
+
+        <div style="display: flex; gap: 10px; margin-bottom: 24px;">
+          <input type="text" id="newSubjectInput" placeholder="Enter subject name (e.g. Data Structures)" style="flex: 1; padding: 10px 14px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--panel-soft); color: var(--text);">
+          <button class="calendar-create-btn" id="addSubjectBtn" style="padding: 10px 20px; cursor: pointer; border-radius: var(--radius-sm);">+ Add Subject</button>
+        </div>
+
+        <div id="manageSubjectList" style="display: grid; gap: 20px;">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
 
   </main>
 

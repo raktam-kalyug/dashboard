@@ -1,12 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+  <!-- ===================================== -->
+  <!-- META -->
+  <!-- ===================================== -->
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Timetable — FocusDesk</title>
-  <link rel="stylesheet" href="../css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Epilogue:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>
+    FocusDesk — Productivity Workspace
+  </title>
+
+  <!-- ===================================== -->
+  <!-- FONTS -->
+  <!-- ===================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- ===================================== -->
+  <!-- ICONS -->
+  <!-- ===================================== -->
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- ===================================== -->
+  <!-- STYLES -->
+  <!-- ===================================== -->
+
+  <link
+    rel="stylesheet"
+    href="../css/style.css"
+  />
+
 </head>
+
 <body class="page-timetable">
 
   <aside class="sidebar" id="sidebar">
@@ -18,16 +66,16 @@
           <span class="brand-sub">Productivity Suite</span>
         </div>
       </div>
-      <button class="sidebar-toggle" id="sidebarToggle">&#8942;</button>
+      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">&#8942;</button>
     </div>
     <nav class="sidebar-nav">
       <p class="nav-group-label">Main</p>
       <ul class="nav-list">
-        <li><a href="index.html"     class="nav-item"><span class="nav-icon">⬛</span><span class="nav-label">Dashboard</span></a></li>
-        <li><a href="tasks.html"     class="nav-item"><span class="nav-icon">✓</span><span class="nav-label">Tasks</span></a></li>
-        <li><a href="timetable.html" class="nav-item active"><span class="nav-icon">▦</span><span class="nav-label">Timetable</span></a></li>
-        <li><a href="notes.html"     class="nav-item"><span class="nav-icon">▤</span><span class="nav-label">Notes</span></a></li>
-        <li><a href="stats.html"     class="nav-item"><span class="nav-icon">◈</span><span class="nav-label">Analytics</span></a></li>
+        <li><a href="index.html"     class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg></span><span class="nav-label">Dashboard</span></a></li>
+        <li><a href="tasks.html"     class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></span><span class="nav-label">Tasks</span></a></li>
+        <li><a href="timetable.html" class="nav-item active"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span><span class="nav-label">Timetable</span></a></li>
+        <li><a href="notes.html"     class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></span><span class="nav-label">Notes</span></a></li>
+        <li><a href="stats.html"     class="nav-item"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg></span><span class="nav-label">Analytics</span></a></li>
       </ul>
     </nav>
     <div class="sidebar-profile">
@@ -42,258 +90,734 @@
   <main class="main-content">
     <header class="topbar">
       <div class="topbar-left">
-        <h1 class="page-title">Timetable</h1>
-        <p class="page-sub">Weekly class schedule — 2nd Semester 2025</p>
+        <h1 class="page-title">Timetable Workspace</h1>
+        <p class="page-sub">Organize your schedule, classes, exams and study sessions.</p>
       </div>
       <div class="topbar-right">
         <div class="live-clock" id="liveClock">00:00:00</div>
-        <div class="week-nav">
-          <button class="week-btn" id="prevWeek">‹</button>
-          <span class="week-label" id="weekLabel">This Week</span>
-          <button class="week-btn" id="nextWeek">›</button>
-        </div>
-        <button class="theme-toggle" id="themeToggle">◑</button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">◑</button>
       </div>
     </header>
 
-    <!-- VIEW TOGGLE -->
-    <div class="view-toggle-bar">
-      <button class="view-btn active" data-view="week">Week View</button>
-      <button class="view-btn" data-view="day">Day View</button>
-      <button class="view-btn add-slot-btn" id="openAddSlot">+ Add Class</button>
-    </div>
+      <!-- ===================================== -->
+      <!-- OVERVIEW -->
+      <!-- ===================================== -->
 
-    <!-- WEEKLY TIMETABLE GRID -->
-    <div class="timetable-wrap">
-      <div class="timetable-grid" id="timetableGrid">
+      <section class="stats-row" aria-label="Overview stats">
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <span class="stat-icon">📅</span>
+          </div>
+          <div class="stat-number">6</div>
+          <div class="stat-label">Today's Events</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <span class="stat-icon">🔥</span>
+          </div>
+          <div class="stat-number">14 Days</div>
+          <div class="stat-label">Study Streak</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <span class="stat-icon">◷</span>
+          </div>
+          <div class="stat-number">42h</div>
+          <div class="stat-label">Focus Hours</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <span class="stat-icon">🎓</span>
+          </div>
+          <div class="stat-number">3</div>
+          <div class="stat-label">Upcoming Exams</div>
+        </div>
+      </section>
 
-        <!-- Column Headers -->
-        <div class="tt-header tt-time-header"></div>
-        <div class="tt-header" data-today="false">Mon</div>
-        <div class="tt-header" data-today="false">Tue</div>
-        <div class="tt-header" data-today="true">Wed</div>
-        <div class="tt-header" data-today="false">Thu</div>
-        <div class="tt-header" data-today="false">Fri</div>
-        <div class="tt-header" data-today="false">Sat</div>
+      <!-- ===================================== -->
+      <!-- CALENDAR TOOLBAR -->
+      <!-- ===================================== -->
 
-        <!-- Time slots 8 AM to 6 PM -->
-        <div class="tt-time">8:00</div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell">
-          <div class="tt-class subject-maths">
-            <span class="ttc-name">Mathematics</span>
-            <span class="ttc-room">Room 204</span>
-          </div>
-        </div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell">
-          <div class="tt-class subject-maths">
-            <span class="ttc-name">Mathematics</span>
-            <span class="ttc-room">Room 204</span>
-          </div>
-        </div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell"></div>
+      <section class="calendar-toolbar">
 
-        <div class="tt-time">9:00</div>
-        <div class="tt-cell">
-          <div class="tt-class subject-maths">
-            <span class="ttc-name">Mathematics</span>
-            <span class="ttc-room">Room 204</span>
-          </div>
-        </div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell">
-          <div class="tt-class subject-maths active-now">
-            <span class="ttc-now">NOW</span>
-            <span class="ttc-name">Mathematics</span>
-            <span class="ttc-room">Room 204</span>
-          </div>
-        </div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell">
-          <div class="tt-class subject-maths">
-            <span class="ttc-name">Mathematics</span>
-            <span class="ttc-room">Room 204</span>
-          </div>
-        </div>
-        <div class="tt-cell"></div>
+        <!-- LEFT -->
 
-        <div class="tt-time">10:00</div>
-        <div class="tt-cell">
-          <div class="tt-class subject-algo">
-            <span class="ttc-name">Algorithms</span>
-            <span class="ttc-room">Room 110</span>
-          </div>
-        </div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell">
-          <div class="tt-class subject-ds">
-            <span class="ttc-name">Data Structures</span>
-            <span class="ttc-room">CS Lab 1</span>
-          </div>
-        </div>
-        <div class="tt-cell">
-          <div class="tt-class subject-algo">
-            <span class="ttc-name">Algorithms</span>
-            <span class="ttc-room">Room 110</span>
-          </div>
-        </div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell"></div>
+        <div class="calendar-toolbar-left">
 
-        <div class="tt-time">11:00</div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell">
-          <div class="tt-class subject-web">
-            <span class="ttc-name">Web Design</span>
-            <span class="ttc-room">Room 301</span>
-          </div>
-        </div>
-        <div class="tt-cell">
-          <div class="tt-class subject-ds">
-            <span class="ttc-name">DS Lab</span>
-            <span class="ttc-room">CS Lab 1</span>
-          </div>
-        </div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell">
-          <div class="tt-class subject-web">
-            <span class="ttc-name">Web Design</span>
-            <span class="ttc-room">Room 301</span>
-          </div>
-        </div>
-        <div class="tt-cell"></div>
+          <button
+            type="button"
+            class="calendar-btn"
+            id="todayBtn"
+          >
+            Today
+          </button>
 
-        <div class="tt-time">12:00</div>
-        <div class="tt-cell tt-break"><span>Lunch Break</span></div>
-        <div class="tt-cell tt-break"><span>Lunch Break</span></div>
-        <div class="tt-cell tt-break"><span>Lunch Break</span></div>
-        <div class="tt-cell tt-break"><span>Lunch Break</span></div>
-        <div class="tt-cell tt-break"><span>Lunch Break</span></div>
-        <div class="tt-cell tt-break"><span>Lunch Break</span></div>
+          <div class="calendar-nav">
 
-        <div class="tt-time">1:00</div>
-        <div class="tt-cell">
-          <div class="tt-class subject-python">
-            <span class="ttc-name">Python</span>
-            <span class="ttc-room">CS Lab 2</span>
-          </div>
-        </div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell">
-          <div class="tt-class subject-web">
-            <span class="ttc-name">Web Design</span>
-            <span class="ttc-room">Room 301</span>
-          </div>
-        </div>
-        <div class="tt-cell">
-          <div class="tt-class subject-python">
-            <span class="ttc-name">Python</span>
-            <span class="ttc-room">CS Lab 2</span>
-          </div>
-        </div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell"></div>
+            <button
+              type="button"
+              class="calendar-nav-btn"
+              id="prevCalendarBtn"
+              aria-label="Previous Week"
+            >
 
-        <div class="tt-time">2:00</div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell">
-          <div class="tt-class subject-c">
-            <span class="ttc-name">C Programming</span>
-            <span class="ttc-room">CS Lab 1</span>
-          </div>
-        </div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell">
-          <div class="tt-class subject-c">
-            <span class="ttc-name">C Programming</span>
-            <span class="ttc-room">CS Lab 1</span>
-          </div>
-        </div>
-        <div class="tt-cell"></div>
+              <i data-lucide="chevron-left"></i>
 
-        <div class="tt-time">3:00</div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell">
-          <div class="tt-class subject-self">
-            <span class="ttc-name">Self Study</span>
-            <span class="ttc-room">Library</span>
-          </div>
-        </div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell">
-          <div class="tt-class subject-self">
-            <span class="ttc-name">Self Study</span>
-            <span class="ttc-room">Library</span>
-          </div>
-        </div>
-        <div class="tt-cell"></div>
+            </button>
 
-        <div class="tt-time">4:00</div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell"></div>
-        <div class="tt-cell"></div>
+            <button
+              type="button"
+              class="calendar-nav-btn"
+              id="nextCalendarBtn"
+              aria-label="Next Week"
+            >
+
+              <i data-lucide="chevron-right"></i>
+
+            </button>
+
+          </div>
+
+          <h2
+            class="calendar-current-date"
+            id="calendarCurrentRange"
+          >
+            May 2026
+          </h2>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="calendar-toolbar-right">
+
+          <!-- VIEW SWITCH -->
+
+          <div class="calendar-view-switch">
+
+            <button
+              type="button"
+              class="calendar-view-btn active"
+              data-view="day"
+            >
+              Day
+            </button>
+
+            <button
+              type="button"
+              class="calendar-view-btn"
+              data-view="week"
+            >
+              Week
+            </button>
+
+            <button
+              type="button"
+              class="calendar-view-btn"
+              data-view="month"
+            >
+              Month
+            </button>
+
+            <button
+              type="button"
+              class="calendar-view-btn"
+              data-view="agenda"
+            >
+              Agenda
+            </button>
+
+          </div>
+
+          <!-- CREATE -->
+
+          <button
+            type="button"
+            class="calendar-create-btn"
+            id="openEventModal"
+          >
+
+            <i data-lucide="plus"></i>
+
+            <span>
+              New Event
+            </span>
+
+            <kbd>N</kbd>
+
+          </button>
+
+        </div>
+
+      </section>
+
+      <!-- ===================================== -->
+      <!-- WORKSPACE -->
+      <!-- ===================================== -->
+
+      <section class="calendar-workspace">
+
+        <!-- ===================================== -->
+        <!-- LEFT SIDEBAR -->
+        <!-- ===================================== -->
+
+        <aside class="calendar-sidebar">
+
+          <!-- MINI CALENDAR -->
+
+          <section class="calendar-panel">
+
+            <div class="panel-header">
+
+              <h3 class="panel-title">
+                Mini Calendar
+              </h3>
+
+            </div>
+
+            <div class="mini-calendar">
+
+              <div class="mini-calendar-days">
+
+                <span>Su</span>
+                <span>Mo</span>
+                <span>Tu</span>
+                <span>We</span>
+                <span>Th</span>
+                <span>Fr</span>
+                <span>Sa</span>
+
+              </div>
+
+              <div
+                class="mini-calendar-grid"
+                id="miniCalendarGrid"
+              >
+
+                <!-- JS -->
+
+              </div>
+
+            </div>
+
+          </section>
+
+          <!-- UPCOMING EXAMS -->
+
+          <section class="calendar-panel">
+
+            <div class="panel-header">
+
+              <h3 class="panel-title">
+                Upcoming Exams
+              </h3>
+
+              <button
+                type="button"
+                class="calendar-nav-btn"
+              >
+
+                <i data-lucide="plus"></i>
+
+              </button>
+
+            </div>
+
+            <div
+              class="exam-list"
+              id="examList"
+            >
+
+              <div class="task-empty-state">
+
+                <i data-lucide="calendar-x"></i>
+
+                <p>
+                  No upcoming exams
+                </p>
+
+              </div>
+
+            </div>
+
+          </section>
+
+          <!-- TASKS -->
+
+          <section class="calendar-panel">
+
+            <div class="panel-header">
+
+              <h3 class="panel-title">
+                Tasks
+              </h3>
+
+              <a
+                href="tasks.html"
+                class="panel-link-btn"
+              >
+                Open
+              </a>
+
+            </div>
+
+            <div
+              class="calendar-task-list"
+              id="calendarTaskList"
+            >
+
+              <!-- JS -->
+
+            </div>
+
+          </section>
+
+        </aside>
+
+        <!-- ===================================== -->
+        <!-- MAIN CALENDAR -->
+        <!-- ===================================== -->
+
+        <section class="calendar-main">
+
+          <!-- TABS -->
+
+          <div class="calendar-tabs">
+
+            <button
+              type="button"
+              class="calendar-tab-btn active"
+              data-tab="planner"
+            >
+              Planner
+            </button>
+
+            <button
+              type="button"
+              class="calendar-tab-btn"
+              data-tab="timetable"
+            >
+              Timetable
+            </button>
+
+            <button
+              type="button"
+              class="calendar-tab-btn"
+              data-tab="agenda"
+            >
+              Agenda
+            </button>
+
+          </div>
+
+          <!-- ===================================== -->
+          <!-- PLANNER -->
+          <!-- ===================================== -->
+
+          <section
+            class="calendar-tab-content active"
+            id="plannerTab"
+          >
+
+            <div class="calendar-grid-layout">
+
+              <!-- TIME -->
+
+              <aside class="calendar-time-column">
+
+                <div class="calendar-time-header"></div>
+
+                <div
+                  class="calendar-time-slots"
+                  id="calendarTimeSlots"
+                ></div>
+
+              </aside>
+
+              <!-- GRID -->
+
+              <div class="calendar-grid-wrapper">
+
+                <!-- DAYS -->
+
+                <div
+                  class="calendar-days-header"
+                  id="calendarDaysHeader"
+                ></div>
+
+                <!-- EVENTS GRID -->
+
+                <div
+                  class="calendar-days-grid"
+                  id="calendarDaysGrid"
+                >
+
+                  <!-- JS -->
+
+                </div>
+
+                <!-- CURRENT TIME -->
+
+                <div
+                  class="current-time-line"
+                  id="currentTimeLine"
+                >
+
+                  <span class="current-time-dot"></span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </section>
+
+          <!-- ===================================== -->
+          <!-- TIMETABLE -->
+          <!-- ===================================== -->
+
+          <section
+            class="calendar-tab-content"
+            id="timetableTab"
+          >
+
+            <div class="calendar-panel timetable-card">
+
+              <!-- TOP -->
+
+              <div class="timetable-header">
+
+                <div>
+
+                  <h3>
+                    Semester Timetable
+                  </h3>
+
+                  <p>
+                    Weekly recurring class schedule
+                  </p>
+
+                </div>
+
+                <div class="timetable-actions">
+
+                  <button
+                    type="button"
+                    class="calendar-btn"
+                  >
+                    Semester 2
+                  </button>
+
+                  <button
+                    type="button"
+                    class="calendar-create-btn"
+                    id="openTimetableModal"
+                  >
+
+                    <i data-lucide="plus"></i>
+
+                    <span>
+                      Add Class
+                    </span>
+
+                  </button>
+
+                </div>
+
+              </div>
+
+              <!-- GRID -->
+
+              <div
+                class="college-timetable-grid"
+                id="collegeTimetableGrid"
+              ></div>
+
+            </div>
+
+          </section>
+
+          <!-- ===================================== -->
+          <!-- AGENDA -->
+          <!-- ===================================== -->
+
+          <section
+            class="calendar-tab-content"
+            id="agendaTab"
+          >
+
+            <div
+              class="agenda-feed"
+              id="agendaFeed"
+            >
+
+              <div class="task-empty-state">
+
+                <i data-lucide="inbox"></i>
+
+                <p>
+                  No scheduled events
+                </p>
+
+              </div>
+
+            </div>
+
+          </section>
+
+        </section>
+
+      </section>
+
+    </main>
+
+  <!-- ===================================== -->
+  <!-- FLOATING ACTION BUTTON -->
+  <!-- ===================================== -->
+
+  <button
+    type="button"
+    class="floating-action-btn"
+    aria-label="Create Event"
+  >
+
+    <i data-lucide="plus"></i>
+
+  </button>
+
+  <!-- ===================================== -->
+  <!-- TOASTS -->
+  <!-- ===================================== -->
+
+  <div
+    class="toast-container"
+    id="toastContainer"
+  ></div>
+
+  <!-- ===================================== -->
+  <!-- EVENT MODAL -->
+  <!-- ===================================== -->
+
+  <div
+    class="modal-overlay"
+    id="eventModal"
+  >
+
+    <div
+      class="modal large-modal"
+      role="dialog"
+      aria-modal="true"
+    >
+
+      <!-- HEADER -->
+
+      <div class="modal-header">
+
+        <div>
+
+          <h3
+            class="modal-title"
+            id="eventModalTitle"
+          >
+            Create Event
+          </h3>
+
+          <p class="modal-subtitle">
+            Schedule your event and reminders
+          </p>
+
+        </div>
+
+        <button
+          type="button"
+          class="modal-close"
+          id="closeEventModal"
+          aria-label="Close Modal"
+        >
+
+          <i data-lucide="x"></i>
+
+        </button>
 
       </div>
-    </div>
 
-    <!-- LEGEND -->
-    <div class="tt-legend">
-      <div class="legend-item"><span class="legend-dot subject-maths"></span>Mathematics</div>
-      <div class="legend-item"><span class="legend-dot subject-algo"></span>Algorithms</div>
-      <div class="legend-item"><span class="legend-dot subject-ds"></span>Data Structures</div>
-      <div class="legend-item"><span class="legend-dot subject-web"></span>Web Design</div>
-      <div class="legend-item"><span class="legend-dot subject-python"></span>Python</div>
-      <div class="legend-item"><span class="legend-dot subject-c"></span>C Programming</div>
-      <div class="legend-item"><span class="legend-dot subject-self"></span>Self Study</div>
-    </div>
+      <!-- BODY -->
 
-    <!-- ADD SLOT MODAL -->
-    <div class="modal-overlay" id="addSlotModal">
-      <div class="modal">
-        <div class="modal-header">
-          <h3 class="modal-title">Add Class Slot</h3>
-          <button class="modal-close" id="closeAddSlot">✕</button>
+      <div class="modal-body">
+
+        <!-- TITLE -->
+
+        <div class="modal-field">
+
+          <label class="modal-label" for="eventTitle">
+            Event Title
+          </label>
+
+          <input
+            type="text"
+            id="eventTitle"
+            class="modal-input"
+            placeholder="Enter title"
+          />
+
         </div>
-        <div class="modal-body">
+
+        <!-- TYPE + DATE -->
+
+        <div class="modal-row">
+
           <div class="modal-field">
-            <label class="modal-label">Subject Name</label>
-            <input type="text" class="modal-input" placeholder="e.g. Mathematics" />
+
+            <label class="modal-label" for="eventType">
+              Event Type
+            </label>
+
+            <select
+              id="eventType"
+              class="modal-select"
+            >
+
+              <option value="personal">
+                Personal
+              </option>
+
+              <option value="study">
+                Study
+              </option>
+
+              <option value="exam">
+                Exam
+              </option>
+
+              <option value="task-session">
+                Task Session
+              </option>
+
+            </select>
+
           </div>
-          <div class="modal-row">
-            <div class="modal-field">
-              <label class="modal-label">Day</label>
-              <select class="modal-select">
-                <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
-                <option>Thursday</option><option>Friday</option><option>Saturday</option>
-              </select>
-            </div>
-            <div class="modal-field">
-              <label class="modal-label">Time</label>
-              <input type="time" class="modal-input" />
-            </div>
-          </div>
+
           <div class="modal-field">
-            <label class="modal-label">Room / Location</label>
-            <input type="text" class="modal-input" placeholder="e.g. Room 204" />
+
+            <label class="modal-label" for="eventDate">
+              Date
+            </label>
+
+            <input
+              type="date"
+              id="eventDate"
+              class="modal-input"
+            />
+
           </div>
+
         </div>
-        <div class="modal-footer">
-          <button class="modal-btn-cancel" id="cancelAddSlot">Cancel</button>
-          <button class="modal-btn-confirm">Add Slot</button>
+
+        <!-- TIME -->
+
+        <div class="modal-row">
+
+          <div class="modal-field">
+
+            <label class="modal-label" for="eventStartTime">
+              Start Time
+            </label>
+
+            <input
+              type="time"
+              id="eventStartTime"
+              class="modal-input"
+            />
+
+          </div>
+
+          <div class="modal-field">
+
+            <label class="modal-label" for="eventEndTime">
+              End Time
+            </label>
+
+            <input
+              type="time"
+              id="eventEndTime"
+              class="modal-input"
+            />
+
+          </div>
+
         </div>
+
+        <!-- NOTES -->
+
+        <div class="modal-field">
+
+          <label class="modal-label" for="eventNotes">
+            Notes
+          </label>
+
+          <textarea
+            id="eventNotes"
+            class="modal-textarea"
+            placeholder="Write notes..."
+          ></textarea>
+
+        </div>
+
       </div>
+
+      <!-- FOOTER -->
+
+      <div class="modal-footer">
+
+        <button
+          type="button"
+          class="modal-btn-cancel"
+          id="cancelEventModal"
+        >
+          Cancel
+        </button>
+
+        <button
+          type="button"
+          class="modal-btn-delete"
+          id="deleteEventBtn"
+        >
+          Delete
+        </button>
+
+        <button
+          type="button"
+          class="modal-btn-confirm"
+          id="saveEventBtn"
+        >
+          Save Event
+        </button>
+
+      </div>
+
     </div>
 
-  </main>
+  </div>
 
-  <script type="module" src="../js/app.js"></script>
-  <script type="module" src="../js/timetable.js"></script>
+  <!-- ===================================== -->
+  <!-- SCRIPTS -->
+  <!-- ===================================== -->
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+  <script
+    type="module"
+    src="../js/app.js"
+  ></script>
+
+  <script
+    type="module"
+    src="../js/timetable.js"
+  ></script>
+
 </body>
+
 </html>
